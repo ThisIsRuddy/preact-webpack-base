@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
@@ -8,7 +9,16 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'client.js'
   },
+  resolve: {
+    alias: {
+      "react": "preact",
+      "react-dom": "preact"
+    }
+  },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: 'node_modules/semantic-ui-css/semantic.min.css', to: 'semantic.min.css' },
+    ]),
     new webpack.optimize.UglifyJsPlugin(),
     new CompressionPlugin({
       asset: "[path].gz[query]",
