@@ -8,4 +8,6 @@ Not finished..... TBC....
 4. webpack
 5. setup a virtual host serving preact-webpack-base/dist as the root
 
+![Success!](http://i.imgur.com/6towVDg.png)
+
 Awesome! A ticking clock! :D
