@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
   entry: './src/App.js',
   output: {
@@ -17,6 +16,7 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
+      { from: 'src/index.html', to: 'index.html' },
       { from: 'node_modules/semantic-ui-css/semantic.min.css', to: 'semantic.min.css' },
     ]),
     new webpack.optimize.UglifyJsPlugin(),
@@ -26,18 +26,6 @@ module.exports = {
       test: /\.(js|html)$/,
       threshold: 10240,
       minRatio: 0.8
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'server',
-      analyzerHost: '127.0.0.1',
-      analyzerPort: 8888,
-      reportFilename: 'report.html',
-      defaultSizes: 'parsed',
-      openAnalyzer: true,
-      generateStatsFile: false,
-      statsFilename: 'stats.json',
-      statsOptions: null,
-      logLevel: 'info'
     })
   ],
   module: {
