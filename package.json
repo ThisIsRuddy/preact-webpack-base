@@ -13,10 +13,12 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.5.1",
+    "compression-webpack-plugin": "^0.4.0",
     "linkstate": "^1.0.1",
     "path": "^0.12.7",
     "preact": "^8.1.0",
     "semantic-ui-react": "^0.68.3",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "webpack-bundle-analyzer": "^2.8.2"
   }
 }
