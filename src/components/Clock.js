@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import React, { Component } from 'react';
 import { Statistic } from 'semantic-ui-react'
 export default class Clock extends Component {
 
@@ -20,11 +20,9 @@ export default class Clock extends Component {
   render(props, state) {
     let time = new Date(state.time).toLocaleTimeString();
     return <div>
-        <Statistic inverted>
+        <Statistic size='tiny'>
           <Statistic.Value>{ time }</Statistic.Value>
-          <Statistic.Label>Time</Statistic.Label>
         </Statistic>
-        <Statistic value={ time } label='Time' />
       </div>
   }
 

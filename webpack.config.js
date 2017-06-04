@@ -1,37 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-module.exports = {
-  entry: './src/App.js',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'client.js'
-  },
-  resolve: {
-    alias: {
-      "react": "preact",
-      "react-dom": "preact"
-    }
-  },
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: 'src/index.html', to: 'index.html' },
-      { from: 'node_modules/semantic-ui-css/semantic.min.css', to: 'semantic.min.css' },
-    ]),
-    new webpack.optimize.UglifyJsPlugin(),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.(js|html)$/,
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  ],
-  module: {
-    loaders: [
-      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/}
-    ]
-  }
+switch(process.env.NODE_ENV){
+  case 'prod':
+  case 'production ':
+  case 'production': module.exports = require('./config/webpack.prod');
+    break;
+  case 'dev':
+  case 'development ':
+  case 'development':
+  default: module.exports = require('./config/webpack.dev');
 }

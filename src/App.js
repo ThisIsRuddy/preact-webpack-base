@@ -1,8 +1,37 @@
-import {h,render} from 'preact'
-import Clock from './components/Clock'
-let root
-function init() {
-  root = render(<Clock />, document.body, root)
+import React, { Component } from 'react'
+import {Container} from 'semantic-ui-react'
+import './app.css'
+import SiteHeader from './components/SiteHeader'
+import NavMenu from './components/NavMenu'
+
+export default class App extends Component {
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <Container fluid>
+        <SiteHeader/>
+        <div className="cell">This is a test cell (app.css), any other styles are loaded from semantic.css</div>
+        <Container fluid className="content">
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+          <Container> <NavMenu/> </Container>
+        </Container>
+      </Container>
+    );
+  }
+
 }
-init()
-module.hot ? module.hot.accept('./App', init) : null

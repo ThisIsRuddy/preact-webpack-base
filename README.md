@@ -4,10 +4,15 @@ Not finished..... TBC....
 
 1. git clone https://github.com/ThisIsRuddy/preact-webpack-base
 2. cd preact-webpack-base
-3. npm install
-4. webpack
-5. setup a virtual host serving preact-webpack-base/dist as the root
 
-![Success!](http://i.imgur.com/6towVDg.png)
+## For development
+npm start
 
-Awesome! A ticking clock! :D
+Editing and saving .js/.css files in the src folder triggers HMR and RHL
+
+
+## For Production deploy
+npm run build
+
+./dist folder now contains all minified files including minified external .css files (semantic-ui).
+This also creates gzip ready files, transfers files/fonts/images to dist for static deploy.
