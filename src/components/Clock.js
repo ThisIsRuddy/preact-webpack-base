@@ -20,7 +20,7 @@ export default class Clock extends Component {
   render(props, state) {
     let time = new Date(state.time).toLocaleTimeString();
     return <div>
-        <Statistic size='tiny'>
+        <Statistic inverted size='tiny'>
           <Statistic.Value>{ time }</Statistic.Value>
         </Statistic>
       </div>
