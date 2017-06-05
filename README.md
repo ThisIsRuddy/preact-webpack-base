@@ -1,7 +1,4 @@
 # preact-webpack-base
-Not finished..... TBC....
-
-
 1. git clone https://github.com/ThisIsRuddy/preact-webpack-base
 2. cd preact-webpack-base
 
